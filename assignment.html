@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Assignment Submission</title>
+</head>
+<body>
+
+    <h1>JavaScript Assignment</h1>
+    <p>Open the browser console (F12 → Console) to see the results.</p>
+
+    <script>
+        /************************************************************
+         * QUESTION 1: BMI CALCULATOR
+         * BMI = weight (kg) / (height * height) in meters
+         * Categories:
+         * Underweight: < 18.5
+         * Normal: 18.5 - 24.9
+         * Overweight: 25 - 29.9
+         * Obese: 30+
+         ************************************************************/
+
+        function calculateBMI(weight, height) {
+            const bmi = weight / (height * height);
+            let category = "";
+
+            if (bmi < 18.5) {
+                category = "Underweight";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                category = "Normal weight";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                category = "Overweight";
+            } else {
+                category = "Obese";
+            }
+
+            return `Your BMI is ${bmi.toFixed(2)}. Category: ${category}`;
+        }
+
+        console.log("----- BMI Test -----");
+        console.log(calculateBMI(70, 1.75));
+
+
+        /************************************************************
+         * QUESTION 2: CHECK SEASON
+         * Takes a month and returns:
+         * Autumn, Winter, Spring or Summer
+         ************************************************************/
+
+        function checkSeason(month) {
+            month = month.toLowerCase();
+
+            if (["september", "october", "november"].includes(month)) {
+                return "Autumn";
+            } else if (["december", "january", "february"].includes(month)) {
+                return "Winter";
+            } else if (["march", "april", "may"].includes(month)) {
+                return "Spring";
+            } else if (["june", "july", "august"].includes(month)) {
+                return "Summer";
+            } else {
+                return "Invalid month";
+            }
+        }
+
+        console.log("----- Season Test -----");
+        console.log(checkSeason("March"));
+
+
+        /************************************************************
+         * QUESTION 3: FIND MAXIMUM OF THREE NUMBERS
+         * i. Using Math.max()
+         * ii. Without using Math.max()
+         ************************************************************/
+
+        // i. Using Math.max
+        function findMax(a, b, c) {
+            return Math.max(a, b, c);
+        }
+
+        console.log("----- findMax Using Math.max -----");
+        console.log(findMax(0, 10, 5));     // 10
+        console.log(findMax(0, -10, -2));   // 0
+
+
+        // ii. Without using Math.max
+        function findMaxWithoutMath(a, b, c) {
+            let max = a;
+
+            if (b > max) {
+                max = b;
+            }
+
+            if (c > max) {
+                max = c;
+            }
+
+            return max;
+        }
+
+        console.log("----- findMax Without Math.max -----");
+        console.log(findMaxWithoutMath(0, 10, 5));     // 10
+        console.log(findMaxWithoutMath(0, -10, -2));   // 0
+
+
+        /************************************************************
+         * QUESTION 4: PRINT ARRAY
+         * Takes an array and prints each value
+         ************************************************************/
+
+        function printArray(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+        }
+
+        console.log("----- Print Array Test -----");
+        printArray([1, 2, 3, 4, 5]);
+
+
+        /************************************************************
+         * QUESTION 5: SHOW DATE AND TIME
+         * Format: DD/MM/YYYY HH:MM
+         * Example: 08/01/2020 04:08
+         ************************************************************/
+
+        function showDateTime() {
+            const now = new Date();
+
+            let day = String(now.getDate()).padStart(2, "0");
+            let month = String(now.getMonth() + 1).padStart(2, "0");
+            let year = now.getFullYear();
+
+            let hours = String(now.getHours()).padStart(2, "0");
+            let minutes = String(now.getMinutes()).padStart(2, "0");
+
+            console.log(`${day}/${month}/${year} ${hours}:${minutes}`);
+        }
+
+        console.log("----- Date & Time Test -----");
+        showDateTime();
+
+    </script>
+
+</body>
+</html>
